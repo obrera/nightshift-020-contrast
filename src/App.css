@@ -2,8 +2,8 @@
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #0f172a;
-  background: #f8fafc;
+  color: #e2e8f0;
+  background: #020617;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -26,12 +26,18 @@ body {
 }
 
 .app {
-  width: min(720px, 100%);
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  width: min(760px, 100%);
+  background: #0f172a;
+  border: 1px solid #1e293b;
   border-radius: 14px;
   padding: 1.25rem;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.6);
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
 }
 
 h1 {
@@ -41,7 +47,42 @@ h1 {
 
 .subtitle {
   margin-top: 0.35rem;
-  color: #475569;
+  color: #94a3b8;
+}
+
+.theme-pill {
+  align-self: flex-start;
+  border: 1px solid #334155;
+  border-radius: 999px;
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  text-transform: uppercase;
+}
+
+.preset-grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+.preset-grid button,
+.action-row button {
+  border: 1px solid #334155;
+  background: #111827;
+  border-radius: 8px;
+  color: #e2e8f0;
+  cursor: pointer;
+  font: inherit;
+  padding: 0.45rem 0.65rem;
+}
+
+.preset-grid button:hover,
+.action-row button:hover {
+  border-color: #475569;
+  background: #1f2937;
 }
 
 .controls {
@@ -53,7 +94,7 @@ h1 {
 
 label {
   font-weight: 600;
-  color: #1e293b;
+  color: #cbd5e1;
 }
 
 .control-row {
@@ -73,30 +114,45 @@ input[type='color'] {
 
 input[type='text'] {
   flex: 1;
-  border: 1px solid #cbd5e1;
+  border: 1px solid #334155;
   border-radius: 8px;
   padding: 0.65rem 0.75rem;
   font: inherit;
+  background: #020617;
+  color: #e2e8f0;
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
 }
 
 .preview {
   margin-top: 1rem;
   border-radius: 10px;
   padding: 1rem;
-  min-height: 118px;
+  min-height: 132px;
   display: grid;
   align-content: center;
   gap: 0.25rem;
-  border: 1px dashed rgba(100, 116, 139, 0.5);
+  border: 1px dashed rgba(148, 163, 184, 0.45);
 }
 
 .preview p {
   margin: 0;
 }
 
+.preview-large {
+  font-size: 1.5rem;
+  line-height: 1.35;
+}
+
 .result {
   margin-top: 1rem;
-  background: #f1f5f9;
+  background: #111827;
+  border: 1px solid #1f2937;
   border-radius: 10px;
   padding: 0.85rem 1rem;
 }
@@ -106,8 +162,23 @@ input[type='text'] {
   font-weight: 700;
 }
 
+.rating {
+  margin: 0.3rem 0 0;
+}
+
+.matrix {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0.65rem 0 0;
+  padding-left: 1rem;
+}
+
 @media (min-width: 680px) {
   .controls {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .preset-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
